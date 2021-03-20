@@ -1,0 +1,32 @@
+.cityInput,
+.stateInput,
+.countryInput {
+  width: 30%;
+  height: 30px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+}
+
+.citySubmit,
+#currentLocation {
+  text-align: center;
+  align-self: center;
+  border-radius: 10px;
+  transition: 300ms ease-in-out;
+  border-style: outset;
+  border: none;
+  box-shadow: 2px 2px 2px 1px rgba(156, 154, 154, 0.8);
+  padding: 15px;
+  display: flex;
+  position: relative;
+}
+.citySubmit {
+  left: 10%;
+  top: 0;
+}
+#currentLocation {
+  left: 50%;
+  right: 50%;
+  top: -54px;
+}

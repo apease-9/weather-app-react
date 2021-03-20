@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
+import Header from "../src/header-stuff/Header";
+import Burger from "./Burger";
+import Popular from "./popCities";
+import City from "../src/currentCity/currentCity.js";
+import Forecast from "../src/forecast/mainForecast.js";
+import Footer from "./footer.js";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  return (
+    <div className="App">
+      <div className="insideApp">
+        <Burger />
+        <Header />
+        <nav className="crumbs">
+          <div className="pop-links">
+            <Popular name="Tokyo,Japan" id="Tokyo" />
+            <Popular name="Hong Kong,China" id="Hong-Kong" />
+            <Popular name="Paris,France" id="Paris" />
+            <Popular name="New York City,NY,US" id="NY" />
+            <Popular name="Rome,Italy" id="Rome" />
+          </div>
+        </nav>
+        <City />
+        <Forecast />
+        <Footer />
+      </div>
+    </div>
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);

@@ -1,0 +1,18 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*overflow-x: hidden;*/
+}
+
+.bod-ani {
+  background-size: 800%;
+  animation: bg-animation 50s infinite alternate;
+}
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}

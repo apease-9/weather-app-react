@@ -1,0 +1,44 @@
+.fiveDay {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  align-content: flex-start;
+  transform: scale(0.9);
+  width: 110%;
+}
+.fiveDay li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.future {
+  align-items: center;
+  flex-basis: 20%;
+  padding: 20px;
+  padding-left: 5px;
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid;
+  margin: 0 auto;
+}
+.future h3 {
+  font-size: 15px;
+  padding: 0;
+}
+.highLow {
+  display: flex;
+  flex-flow: wrap;
+}
+.icon {
+  background: transparent;
+  justify-self: center;
+}
+@media screen and (max-width: 800px) {
+  .forFiv {
+    transform: scale(0.85) translateX(-10%);
+    width: 120%;
+  }
+}

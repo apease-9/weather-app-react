@@ -1,0 +1,15 @@
+.weatherD {
+  text-transform: capitalize;
+}
+#currentCity {
+  text-align: center;
+}
+#search {
+  font-size: 70px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#coordinates {
+  font-size: 12px;
+  padding-top: 5px;
+}

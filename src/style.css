@@ -1,0 +1,17 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  font-family: "Yusei Magic", sans-serif;
+}
+.insideApp {
+  background: #d4d7d8;
+  margin: 2% auto 0;
+  padding: 10px 15px 20px;
+  height: 100%;
+  border-radius: 50px;
+  width: 70%;
+  max-width: 800px;
+  align-content: center;
+  box-shadow: rgba(37, 39, 89, 0.7) 0px 8px 8px 0;
+  border-style: outset;
+}
