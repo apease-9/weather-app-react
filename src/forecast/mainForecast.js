@@ -2,11 +2,29 @@ import React from "react";
 import "./main.css";
 
 export default function Forecast() {
+  let now = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   return (
     <div className="container forFiv">
       <div className="row fiveDay">
         <div className="day1 future col-2">
-          <p className="date1">Wednesday</p>
+          <p className="date1">{days[now.getDay() + 1]}</p>
           <img
             className="img1 icon"
             src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -21,7 +39,7 @@ export default function Forecast() {
           <span class="unit">°C</span>
         </div>
         <div className="day2 future col-2">
-          <p className="date2">Wednesday</p>
+          <p className="date2">{days[now.getDay() + 2]}</p>
           <img
             className="img2 icon"
             src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -36,7 +54,7 @@ export default function Forecast() {
           <span className="unit">°C</span>
         </div>
         <div className="day3 future col-2">
-          <p className="date3">Wednesday</p>
+          <p className="date3">{days[now.getDay() + 3]}</p>
           <img
             className="img3 icon"
             src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -51,7 +69,7 @@ export default function Forecast() {
           <span className="unit">°C</span>
         </div>
         <div className="day4 future col-2">
-          <p className="date4">Wednesday</p>
+          <p className="date4">{days[now.getDay() + 4]}</p>
           <img
             className="img4 icon"
             src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -66,7 +84,7 @@ export default function Forecast() {
           <span className="unit">°C</span>
         </div>
         <div className="day5 future col-2">
-          <p className="date5">Wednesday</p>
+          <p className="date5">{days[now.getDay() + 5]}</p>
           <img
             className="img5 icon"
             src="http://openweathermap.org/img/wn/10d@2x.png"
