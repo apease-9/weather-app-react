@@ -1,7 +1,7 @@
 body {
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /*overflow-x: hidden;*/
+  overflow-x: hidden;
 }
 
 .bod-ani {
