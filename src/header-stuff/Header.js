@@ -8,7 +8,6 @@ import "./Header.css";
 
 export default function Header(props) {
   let list = document.querySelector(".header-stuff");
-  console.log(list);
   let burger = props.ani;
   if (burger === "shrink") {
     list.animate(
