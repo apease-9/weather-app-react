@@ -51,4 +51,115 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    let hourDay = new Date();
+    let hourColor = hourDay.getHours();
+    let submit = document.getElementById("citySubmit");
+    let clocation = document.getElementById("currentLocation");
+
+    //early morning
+    if (hourColor >= 5 && hourColor < 8) {
+      document.body.style.backgroundImage =
+        "linear-gradient(200deg,#a770ef, #cf8bf3, #fdb99b)";
+      submit.style.background = "#fdb99b";
+      submit.onmouseover = function () {
+        this.style.backgroundColor = "#a770ef";
+      };
+      submit.onmouseout = function () {
+        this.style.backgroundColor = "#fdb99b";
+      };
+      clocation.style.background = "#fdb99b";
+      clocation.onmouseover = function () {
+        this.style.backgroundColor = "#a770ef";
+      };
+      clocation.onmouseout = function () {
+        this.style.backgroundColor = "#fdb99b";
+      };
+      slid.forEach((element) => {
+        element.style.backgroundColor = "#000";
+      });
+    }
+    //mid morning
+    if (hourColor >= 8 && hourColor < 12) {
+      document.body.style.backgroundImage =
+        "linear-gradient(200deg,#7f7fd5,#86a8e7,#91eae4)";
+      submit.style.background = "#b0f8f1";
+      submit.onmouseover = function () {
+        this.style.backgroundColor = "#86a8e7";
+      };
+      submit.onmouseout = function () {
+        this.style.backgroundColor = "#b0f8f1";
+      };
+      clocation.style.background = "#b0f8f1";
+      clocation.onmouseover = function () {
+        this.style.backgroundColor = "#86a8e7";
+      };
+      clocation.onmouseout = function () {
+        this.style.backgroundColor = "#b0f8f1";
+      };
+    }
+    //afternoon
+    if (hourColor >= 12 && hourColor < 17) {
+      document.body.style.backgroundImage =
+        "radial-gradient(#ffffff,#6dd5fa 20%,#2980b9 74%)";
+      submit.style.background = "#6dd5fa";
+      submit.onmouseover = function () {
+        this.style.backgroundColor = "#86a8e7";
+      };
+      submit.onmouseout = function () {
+        this.style.backgroundColor = "#6dd5fa";
+      };
+      submit.style.color = "#252222";
+      clocation.style.color = "#252222";
+      clocation.style.background = "#6dd5fa";
+      clocation.onmouseover = function () {
+        this.style.backgroundColor = "#86a8e7";
+      };
+      clocation.onmouseout = function () {
+        this.style.backgroundColor = "#6dd5fa";
+      };
+    }
+    //early evening
+    if (hourColor >= 17 && hourColor < 21) {
+      document.body.style.backgroundImage =
+        "linear-gradient(320deg, #1a2a6c, #b21f1f, #fdbb2d)";
+      submit.style.background = "#1a2a6c";
+      submit.onmouseover = function () {
+        this.style.backgroundColor = "#b21f1f";
+      };
+      submit.onmouseout = function () {
+        this.style.backgroundColor = "#1a2a6c";
+      };
+      submit.style.color = "rgb(219, 211, 230)";
+      clocation.style.color = "rgb(219, 211, 230)";
+      clocation.style.background = "#1a2a6c";
+      clocation.onmouseover = function () {
+        this.style.backgroundColor = "#b21f1f";
+      };
+      clocation.onmouseout = function () {
+        this.style.backgroundColor = "#1a2a6c";
+      };
+    }
+    //late evening
+    if (hourColor >= 21 || hourColor < 5) {
+      document.body.style.backgroundImage =
+        "linear-gradient(320deg, #855988, #6B4984, #483475, #2B2F77, #141852, #070B34)";
+      submit.style.background = "#483475";
+      submit.onmouseover = function () {
+        this.style.backgroundColor = "#070B34";
+      };
+      submit.onmouseout = function () {
+        this.style.backgroundColor = "#483475";
+      };
+      submit.style.color = "rgb(219, 211, 230)";
+      clocation.style.color = "rgb(219, 211, 230)";
+      clocation.style.background = "#483475";
+      clocation.onmouseover = function () {
+        this.style.backgroundColor = "#070B34";
+      };
+      clocation.onmouseout = function () {
+        this.style.backgroundColor = "#483475";
+      };
+    }
+  </script>
 </html>

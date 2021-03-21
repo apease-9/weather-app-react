@@ -2,7 +2,7 @@ import React from "react";
 import "./Switchs.css";
 
 export default function Time() {
-  let timeSwitch = document.querySelector("input[name=switchTime]");
+  /*  let timeSwitch = document.querySelector("input[name=switchTime]");
   timeSwitch.addEventListener("change", switchTime);
   function switchTime() {
     function zeroAdd(m) {
@@ -80,7 +80,7 @@ export default function Time() {
     setTimeout(switchTime, 1000);
   }
   switchTime();
-
+*/
   return (
     <div id="current-time">
       <span id="24-hour">24-hour</span>

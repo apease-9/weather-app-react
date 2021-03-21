@@ -7,7 +7,7 @@ import Form from "./Form.js";
 import "./Header.css";
 
 export default function Header(props) {
-  let list = document.querySelector(".header-stuff");
+  /* let list = document.querySelector(".header-stuff");
   let burger = props.ani;
   if (burger === "shrink") {
     list.animate(
@@ -28,7 +28,7 @@ export default function Header(props) {
     );
     list.style.transform = "translateX(0)";
   }
-
+*/
   return (
     <div className="header-stuff">
       <Units />
