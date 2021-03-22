@@ -1,5 +1,6 @@
 import React from "react";
 import "./main.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Forecast() {
   let now = new Date();
