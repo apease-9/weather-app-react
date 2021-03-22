@@ -10,7 +10,7 @@ export default function Header(props) {
   return (
     <nav className={`header-stuff ${props.ani}h`}>
       <Units />
-      <Time />
+      <Time changeTime={props.changeTime} time={props.time} />
       <Animations />
       <br />
       <br />

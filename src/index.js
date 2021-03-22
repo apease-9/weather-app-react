@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./style.css";
 import Burger from "./Burger";
@@ -8,10 +8,11 @@ import Forecast from "../src/forecast/mainForecast.js";
 import Footer from "./footer.js";
 
 function App() {
+  const [time, changeTime] = useState("24");
   return (
     <div className="App">
       <div className="insideApp">
-        <Burger />
+        <Burger changeTime={changeTime} time={time} />
         <nav className="crumbs">
           <div className="pop-links">
             <Popular name="Tokyo,Japan" id="Tokyo" />
@@ -21,7 +22,7 @@ function App() {
             <Popular name="Rome,Italy" id="Rome" />
           </div>
         </nav>
-        <City />
+        <City time={time} />
         <Forecast />
         <Footer />
       </div>

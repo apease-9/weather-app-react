@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Burger.css";
 import Header from "../src/header-stuff/Header";
 
-export default function Burger() {
+export default function Burger(props) {
   let [direction, popBurger] = useState("shrink");
   function toggleBurger() {
     if (direction === "shrink" ? popBurger("pop") : popBurger("shrink"));
@@ -15,7 +15,7 @@ export default function Burger() {
         <div className="line-2" />
         <div className="line-3" />
       </div>
-      <Header ani={direction} />
+      <Header ani={direction} changeTime={props.changeTime} time={props.time} />
     </div>
   );
 }

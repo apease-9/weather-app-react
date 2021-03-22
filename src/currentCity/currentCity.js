@@ -2,10 +2,10 @@ import React from "react";
 import Display from "./cityDisplay";
 import Rows from "./threeRows.js";
 
-export default function City() {
+export default function City(props) {
   return (
     <div className="city">
-      <Display />
+      <Display time={props.time} />
       <br />
       <br />
       <Rows />
