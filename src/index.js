@@ -8,7 +8,54 @@ import Forecast from "../src/forecast/mainForecast.js";
 import Footer from "./footer.js";
 
 function App() {
-  const [time, changeTime] = useState("24");
+  function zeroAdd(m) {
+    if (m < 10) {
+      m = "0" + m;
+    }
+    return m;
+  }
+
+  let now = new Date();
+  let date = now.getDate();
+  let hour = zeroAdd(now.getHours());
+  let minutes = zeroAdd(now.getMinutes());
+  let year = now.getFullYear();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+
+  let months = [
+    "January",
+    "Febuary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  let date24Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
+  const [time, changeTime] = useState(date24Format);
+
   return (
     <div className="App">
       <div className="insideApp">
