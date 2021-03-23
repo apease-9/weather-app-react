@@ -69,6 +69,8 @@ function App() {
             <Popular name="Rome,Italy" id="Rome" />
           </div>
         </nav>
+        <br />
+        <br />
         <City time={time} />
         <Forecast />
         <Footer />
