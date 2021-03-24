@@ -1,11 +1,11 @@
 import React from "react";
 import "./imgs.css";
 
-export default function Imgs() {
+export default function Imgs(props) {
   return (
     <div className="imgBox cbox col-4">
       <p id="weatherDescription" className="weatherD">
-        clouds
+        {props.description}
       </p>
       <br />
       <br />
@@ -27,3 +27,4 @@ export default function Imgs() {
     </div>
   );
 }
+//icon={props.icon}

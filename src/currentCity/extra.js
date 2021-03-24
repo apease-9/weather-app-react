@@ -8,17 +8,17 @@ export default function Extra(props) {
         <li className="extra">
           Dew Point:
           <span id="dew" className="unit-0">
-            20
+            {props.dew}
           </span>
           {props.units}
         </li>
         <li className="extra">
-          Humidity: <span id="humidity">20</span>%
+          Humidity: <span id="humidity">{props.humidity}</span>%
         </li>
         <li className="extra">
           Wind:
           <span className="unit-1" id="wind">
-            20
+            {props.wind}
           </span>
           {props.otherUnits}
           <span className="windDe">SW</span>

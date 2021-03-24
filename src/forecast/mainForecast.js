@@ -28,52 +28,52 @@ export default function Forecast(props) {
         <Items
           mDay="day1"
           pDay={days[now.getDay() + 1]}
-          imgSrc="http://openweathermap.org/img/wn/10d@2x.png"
-          imgAlt="It is snowing"
-          description="--"
-          high="20"
+          imgSrc={`http://openweathermap.org/img/wn/${props.icon1}@2x.png`}
+          imgAlt={props.d1}
+          description={props.d1}
+          high={props.tempH1}
           units={props.units}
-          low="20"
+          low={props.tempL1}
         />
         <Items
           mDay="day2"
           pDay={days[now.getDay() + 2]}
-          imgSrc="http://openweathermap.org/img/wn/10d@2x.png"
-          imgAlt="It is snowing"
-          description="--"
-          high="20"
+          imgSrc={`http://openweathermap.org/img/wn/${props.icon2}@2x.png`}
+          imgAlt={props.d2}
+          description={props.d2}
+          high={props.tempH2}
           units={props.units}
-          low="20"
+          low={props.tempL2}
         />
         <Items
           mDay="day3"
           pDay={days[now.getDay() + 3]}
-          imgSrc="http://openweathermap.org/img/wn/10d@2x.png"
-          imgAlt="It is snowing"
-          description="--"
-          high="20"
+          imgSrc={`http://openweathermap.org/img/wn/${props.icon3}@2x.png`}
+          imgAlt={props.d3}
+          description={props.d3}
+          high={props.tempH3}
           units={props.units}
-          low="20"
+          low={props.tempL3}
         />
         <Items
           mDay="day4"
           pDay={days[now.getDay() + 4]}
-          imgSrc="http://openweathermap.org/img/wn/10d@2x.png"
-          imgAlt="It is snowing"
-          description="--"
-          high="20"
+          imgSrc={`http://openweathermap.org/img/wn/${props.icon4}@2x.png`}
+          imgAlt={props.d4}
+          description={props.d4}
+          high={props.tempH4}
           units={props.units}
-          low="20"
+          low={props.tempL4}
         />
         <Items
           mDay="day5"
           pDay={days[now.getDay() + 5]}
-          imgSrc="http://openweathermap.org/img/wn/10d@2x.png"
-          imgAlt="It is snowing"
-          description="--"
-          high="20"
+          imgSrc={`http://openweathermap.org/img/wn/${props.icon5}@2x.png`}
+          imgAlt={props.d5}
+          description={props.d5}
+          high={props.tempH5}
           units={props.units}
-          low="20"
+          low={props.tempL5}
         />
         <br />
         <br />

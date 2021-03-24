@@ -59,13 +59,15 @@ function App() {
   const [time, changeTime] = useState(date24Format);
   ///////////////////////////Units////////////////////////////////
   let [units, changeUnits] = useState("°C");
-  let [other, changeOther] = useState("km/h");
+  let [other, changeOther] = useState("m/s");
   let [apiUnits, changeAunits] = useState("metric");
 
   //////////////////////////////////City///////////////////////////
-  let [city, changeCity] = useState("Dublin");
+  let [city, changeCity] = useState("Dublin,IE");
+  let [cityD, changeC] = useState("Dublin");
   let [lat, changeLat] = useState(" ");
   let [lon, changeLon] = useState(" ");
+  let [dew, changeDew] = useState(" ");
   let [humidity, changeHumidity] = useState(" ");
   let [wind, changeWindS] = useState(" ");
   let [current, changeCurrent] = useState(" ");
@@ -74,6 +76,26 @@ function App() {
   let [low, changeLow] = useState(" ");
   let [icon, changeIcon] = useState(" ");
   let [description, changeD] = useState(" ");
+  let [tempH1, changeH1] = useState(" ");
+  let [tempH2, changeH2] = useState(" ");
+  let [tempH3, changeH3] = useState(" ");
+  let [tempH4, changeH4] = useState(" ");
+  let [tempH5, changeH5] = useState(" ");
+  let [tempL1, changeL1] = useState(" ");
+  let [tempL2, changeL2] = useState(" ");
+  let [tempL3, changeL3] = useState(" ");
+  let [tempL4, changeL4] = useState(" ");
+  let [tempL5, changeL5] = useState(" ");
+  let [d1, changeD1] = useState(" ");
+  let [d2, changeD2] = useState(" ");
+  let [d3, changeD3] = useState(" ");
+  let [d4, changeD4] = useState(" ");
+  let [d5, changeD5] = useState(" ");
+  let [icon1, changeI1] = useState(" ");
+  let [icon2, changeI2] = useState(" ");
+  let [icon3, changeI3] = useState(" ");
+  let [icon4, changeI4] = useState(" ");
+  let [icon5, changeI5] = useState(" ");
 
   function showTemperature(response) {
     changeLat(response.data.coord.lat);
@@ -82,15 +104,53 @@ function App() {
     changeWindS(response.data.wind.speed);
     changeCurrent(response.data.main.temp);
     changeFeel(response.data.main.feels_like);
-    changeHigh(response.data.temp_max);
-    changeLow(response.data.temp_min);
+    changeHigh(response.data.main.temp_max);
+    changeLow(response.data.main.temp_min);
     changeIcon(response.data.weather.id);
     changeD(response.data.weather.description);
+    changeC(response.data.name);
+
+    ///////////////////////////////Forecast//////////////////////////////////
+
+    let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${apiUnits}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    axios.get(forecastURL).then(showForecast);
+  }
+
+  function showForecast(response) {
+    //Mac and min forcast
+    changeH1(Math.round(response.data.daily[1].temp.max));
+    changeL1(Math.round(response.data.daily[1].temp.min));
+    changeH2(Math.round(response.data.daily[2].temp.max));
+    changeL2(Math.round(response.data.daily[2].temp.min));
+    changeH3(Math.round(response.data.daily[3].temp.max));
+    changeL3(Math.round(response.data.daily[3].temp.min));
+    changeH4(Math.round(response.data.daily[4].temp.max));
+    changeL4(Math.round(response.data.daily[4].temp.min));
+    changeH5(Math.round(response.data.daily[5].temp.max));
+    changeL5(Math.round(response.data.daily[5].temp.min));
+
+    //Dew Point
+    changeDew(Math.round(response.data.daily[0].dew_point));
+
+    //Weather Descriptions
+    changeD1(response.data.daily[1].weather[0].description);
+    changeD2(response.data.daily[2].weather[0].description);
+    changeD3(response.data.daily[3].weather[0].description);
+    changeD4(response.data.daily[4].weather[0].description);
+    changeD5(response.data.daily[5].weather[0].description);
+
+    //Make an if statement to change weather icon based on what the main idea is (ie. rain, snow, sun, cloudy)
+    changeI1(response.data.daily[1].weather[0].icon);
+    changeI2(response.data.daily[2].weather[0].icon);
+    changeI3(response.data.daily[3].weather[0].icon);
+    changeI4(response.data.daily[4].weather[0].icon);
+    changeI5(response.data.daily[5].weather[0].icon);
   }
 
   let apiKey = "100f8a7c29c0b02275197751bc3ff692";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${apiUnits}&appid=${apiKey}`;
   axios.get(apiURL).then(showTemperature);
+
   return (
     <div className="App">
       <div className="insideApp">
@@ -115,6 +175,12 @@ function App() {
           changeLow={changeLow}
           changeIcon={changeIcon}
           changeD={changeD}
+          changeC={changeC}
+          wind={wind}
+          current={current}
+          realFeel={realFeel}
+          high={high}
+          low={low}
         />
         <nav className="crumbs">
           <div className="pop-links">
@@ -134,6 +200,7 @@ function App() {
               changeLow={changeLow}
               changeIcon={changeIcon}
               changeD={changeD}
+              changeC={changeC}
             />
             <Popular
               name="Hong Kong,China"
@@ -151,6 +218,7 @@ function App() {
               changeLow={changeLow}
               changeIcon={changeIcon}
               changeD={changeD}
+              changeC={changeC}
             />
             <Popular
               name="Paris,France"
@@ -168,6 +236,7 @@ function App() {
               changeLow={changeLow}
               changeIcon={changeIcon}
               changeD={changeD}
+              changeC={changeC}
             />
             <Popular
               name="New York City,NY,US"
@@ -185,6 +254,7 @@ function App() {
               changeLow={changeLow}
               changeIcon={changeIcon}
               changeD={changeD}
+              changeC={changeC}
             />
             <Popular
               name="Rome,Italy"
@@ -202,6 +272,7 @@ function App() {
               changeLow={changeLow}
               changeIcon={changeIcon}
               changeD={changeD}
+              changeC={changeC}
             />
           </div>
         </nav>
@@ -211,7 +282,7 @@ function App() {
           time={time}
           units={units}
           otherUnits={other}
-          city={city}
+          city={cityD}
           lat={lat}
           lon={lon}
           humidity={humidity}
@@ -222,8 +293,31 @@ function App() {
           low={low}
           icon={icon}
           description={description}
+          dew={dew}
         />
-        <Forecast units={units} />
+        <Forecast
+          units={units}
+          tempH1={tempH1}
+          tempH2={tempH2}
+          tempH3={tempH3}
+          tempH4={tempH4}
+          tempH5={tempH5}
+          tempL1={tempL1}
+          tempL2={tempL2}
+          tempL3={tempL3}
+          tempL4={tempL4}
+          tempL5={tempL5}
+          d1={d1}
+          d2={d2}
+          d3={d3}
+          d4={d4}
+          d5={d5}
+          icon1={icon1}
+          icon2={icon2}
+          icon3={icon3}
+          icon4={icon4}
+          icon5={icon5}
+        />
         <Footer />
       </div>
     </div>

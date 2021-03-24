@@ -10,10 +10,11 @@ export default function Popular(props) {
     props.changeWindS(response.data.wind.speed);
     props.changeCurrent(response.data.main.temp);
     props.changeFeel(response.data.main.feels_like);
-    props.changeHigh(response.data.temp_max);
-    props.changeLow(response.data.temp_min);
+    props.changeHigh(response.data.main.temp_max);
+    props.changeLow(response.data.main.temp_min);
     props.changeIcon(response.data.weather.id);
     props.changeD(response.data.weather.description);
+    props.changeC(response.data.name);
   }
 
   function toggleCity(event) {

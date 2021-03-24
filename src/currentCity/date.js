@@ -7,23 +7,23 @@ export default function Date(props) {
       <ul>
         <li id="tempNow">
           Currently
-          <span className="tempNum unit-0">20</span>
+          <span className="tempNum unit-0">{Math.round(props.current)}</span>
           <span className="unit">{props.units}</span>
         </li>
         <li>
           Real Feel:
-          <span className="realFeel unit-0">20</span>
+          <span className="realFeel unit-0">{Math.round(props.realFeel)}</span>
           <span className="unit">{props.units}</span>
         </li>
         <li>
           High:
-          <span className="temp-max unit-0">20</span>
+          <span className="temp-max unit-0">{Math.round(props.high)}</span>
           <span className="unit">{props.units}</span>
         </li>
 
         <li>
           Low:
-          <span className="temp-min unit-0">20</span>
+          <span className="temp-min unit-0">{Math.round(props.low)}</span>
           <span className="unit">{props.units}</span>
         </li>
       </ul>

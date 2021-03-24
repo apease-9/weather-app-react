@@ -36,6 +36,12 @@ export default function Burger(props) {
         apiUnits={props.apiUnits}
         changeCity={props.changeCity}
         city={props.city}
+        wind={props.wind}
+        current={props.current}
+        realFeel={props.realFeel}
+        high={props.high}
+        low={props.low}
+        changeC={props.changeC}
       />
     </div>
   );
