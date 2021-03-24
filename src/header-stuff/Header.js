@@ -19,7 +19,21 @@ export default function Header(props) {
       <br />
       <br />
       <br />
-      <Form />
+      <Form
+        changeLat={props.changeLat}
+        changeLon={props.changeLon}
+        changeHumidity={props.changeHumidity}
+        changeWindS={props.changeWindS}
+        changeCurrent={props.changeCurrent}
+        changeFeel={props.changeFeel}
+        changeHigh={props.changeHigh}
+        changeLow={props.changeLow}
+        changeIcon={props.changeIcon}
+        changeD={props.changeD}
+        apiUnits={props.apiUnits}
+        changeCity={props.changeCity}
+        city={props.city}
+      />
       <br />
     </nav>
   );

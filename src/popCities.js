@@ -4,11 +4,16 @@ import axios from "axios";
 
 export default function Popular(props) {
   function showTemperature(response) {
-    alert(
-      `The temperature in ${props.name} is currently ${Math.round(
-        response.data.main.temp
-      )}`
-    );
+    props.changeLat(response.data.coord.lat);
+    props.changeLon(response.data.coord.lon);
+    props.changeHumidity(response.data.main.humidity);
+    props.changeWindS(response.data.wind.speed);
+    props.changeCurrent(response.data.main.temp);
+    props.changeFeel(response.data.main.feels_like);
+    props.changeHigh(response.data.temp_max);
+    props.changeLow(response.data.temp_min);
+    props.changeIcon(response.data.weather.id);
+    props.changeD(response.data.weather.description);
   }
 
   function toggleCity(event) {

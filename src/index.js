@@ -6,6 +6,7 @@ import Popular from "./popCities";
 import City from "../src/currentCity/currentCity.js";
 import Forecast from "../src/forecast/mainForecast.js";
 import Footer from "./footer.js";
+import axios from "axios";
 
 function App() {
   //////////////////////date///////////////////////////////////////
@@ -63,7 +64,33 @@ function App() {
 
   //////////////////////////////////City///////////////////////////
   let [city, changeCity] = useState("Dublin");
+  let [lat, changeLat] = useState(" ");
+  let [lon, changeLon] = useState(" ");
+  let [humidity, changeHumidity] = useState(" ");
+  let [wind, changeWindS] = useState(" ");
+  let [current, changeCurrent] = useState(" ");
+  let [realFeel, changeFeel] = useState(" ");
+  let [high, changeHigh] = useState(" ");
+  let [low, changeLow] = useState(" ");
+  let [icon, changeIcon] = useState(" ");
+  let [description, changeD] = useState(" ");
 
+  function showTemperature(response) {
+    changeLat(response.data.coord.lat);
+    changeLon(response.data.coord.lon);
+    changeHumidity(response.data.main.humidity);
+    changeWindS(response.data.wind.speed);
+    changeCurrent(response.data.main.temp);
+    changeFeel(response.data.main.feels_like);
+    changeHigh(response.data.temp_max);
+    changeLow(response.data.temp_min);
+    changeIcon(response.data.weather.id);
+    changeD(response.data.weather.description);
+  }
+
+  let apiKey = "100f8a7c29c0b02275197751bc3ff692";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${apiUnits}&appid=${apiKey}`;
+  axios.get(apiURL).then(showTemperature);
   return (
     <div className="App">
       <div className="insideApp">
@@ -76,6 +103,18 @@ function App() {
           changeOther={changeOther}
           apiUnits={apiUnits}
           changeAunits={changeAunits}
+          city={city}
+          changeCity={changeCity}
+          changeLat={changeLat}
+          changeLon={changeLon}
+          changeHumidity={changeHumidity}
+          changeWindS={changeWindS}
+          changeCurrent={changeCurrent}
+          changeFeel={changeFeel}
+          changeHigh={changeHigh}
+          changeLow={changeLow}
+          changeIcon={changeIcon}
+          changeD={changeD}
         />
         <nav className="crumbs">
           <div className="pop-links">
@@ -85,6 +124,16 @@ function App() {
               city={city}
               changeCity={changeCity}
               apiUnits={apiUnits}
+              changeLat={changeLat}
+              changeLon={changeLon}
+              changeHumidity={changeHumidity}
+              changeWindS={changeWindS}
+              changeCurrent={changeCurrent}
+              changeFeel={changeFeel}
+              changeHigh={changeHigh}
+              changeLow={changeLow}
+              changeIcon={changeIcon}
+              changeD={changeD}
             />
             <Popular
               name="Hong Kong,China"
@@ -92,6 +141,16 @@ function App() {
               city={city}
               changeCity={changeCity}
               apiUnits={apiUnits}
+              changeLat={changeLat}
+              changeLon={changeLon}
+              changeHumidity={changeHumidity}
+              changeWindS={changeWindS}
+              changeCurrent={changeCurrent}
+              changeFeel={changeFeel}
+              changeHigh={changeHigh}
+              changeLow={changeLow}
+              changeIcon={changeIcon}
+              changeD={changeD}
             />
             <Popular
               name="Paris,France"
@@ -99,6 +158,16 @@ function App() {
               city={city}
               changeCity={changeCity}
               apiUnits={apiUnits}
+              changeLat={changeLat}
+              changeLon={changeLon}
+              changeHumidity={changeHumidity}
+              changeWindS={changeWindS}
+              changeCurrent={changeCurrent}
+              changeFeel={changeFeel}
+              changeHigh={changeHigh}
+              changeLow={changeLow}
+              changeIcon={changeIcon}
+              changeD={changeD}
             />
             <Popular
               name="New York City,NY,US"
@@ -106,6 +175,16 @@ function App() {
               city={city}
               changeCity={changeCity}
               apiUnits={apiUnits}
+              changeLat={changeLat}
+              changeLon={changeLon}
+              changeHumidity={changeHumidity}
+              changeWindS={changeWindS}
+              changeCurrent={changeCurrent}
+              changeFeel={changeFeel}
+              changeHigh={changeHigh}
+              changeLow={changeLow}
+              changeIcon={changeIcon}
+              changeD={changeD}
             />
             <Popular
               name="Rome,Italy"
@@ -113,12 +192,37 @@ function App() {
               city={city}
               changeCity={changeCity}
               apiUnits={apiUnits}
+              changeLat={changeLat}
+              changeLon={changeLon}
+              changeHumidity={changeHumidity}
+              changeWindS={changeWindS}
+              changeCurrent={changeCurrent}
+              changeFeel={changeFeel}
+              changeHigh={changeHigh}
+              changeLow={changeLow}
+              changeIcon={changeIcon}
+              changeD={changeD}
             />
           </div>
         </nav>
         <br />
         <br />
-        <City time={time} units={units} otherUnits={other} />
+        <City
+          time={time}
+          units={units}
+          otherUnits={other}
+          city={city}
+          lat={lat}
+          lon={lon}
+          humidity={humidity}
+          wind={wind}
+          current={current}
+          realFeel={realFeel}
+          high={high}
+          low={low}
+          icon={icon}
+          description={description}
+        />
         <Forecast units={units} />
         <Footer />
       </div>

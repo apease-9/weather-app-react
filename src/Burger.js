@@ -23,6 +23,19 @@ export default function Burger(props) {
         changeUnits={props.changeUnits}
         changeOther={props.changeOther}
         changeAunits={props.changeAunits}
+        changeLat={props.changeLat}
+        changeLon={props.changeLon}
+        changeHumidity={props.changeHumidity}
+        changeWindS={props.changeWindS}
+        changeCurrent={props.changeCurrent}
+        changeFeel={props.changeFeel}
+        changeHigh={props.changeHigh}
+        changeLow={props.changeLow}
+        changeIcon={props.changeIcon}
+        changeD={props.changeD}
+        apiUnits={props.apiUnits}
+        changeCity={props.changeCity}
+        city={props.city}
       />
     </div>
   );
