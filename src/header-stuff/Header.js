@@ -1,7 +1,6 @@
 import React from "react";
 import Units from "./unitSwitch";
 import Time from "./timeSwitch";
-import Animations from "./aniSwitch";
 import Form from "./Form.js";
 
 import "./Header.css";
@@ -16,7 +15,6 @@ export default function Header(props) {
         changeOther={props.changeOther}
       />
       <Time changeTime={props.changeTime} time={props.time} />
-      <Animations />
       <br />
       <br />
       <br />

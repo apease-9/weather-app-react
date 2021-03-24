@@ -19,8 +19,6 @@ export default function UnitSwitch(props) {
         <span className="slider round"></span>
       </label>
       <span id="Imperial">Imperial</span>
-      <h1>{props.units}</h1>
-      <h1>{props.otherUnits}</h1>
     </div>
   );
 }
