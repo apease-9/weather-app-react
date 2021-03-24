@@ -11,8 +11,8 @@ export default function Header(props) {
       <Units
         units={props.units}
         changeUnits={props.changeUnits}
-        otherUnits={props.otherUnits}
         changeOther={props.changeOther}
+        changeAunits={props.changeAunits}
       />
       <Time changeTime={props.changeTime} time={props.time} />
       <br />

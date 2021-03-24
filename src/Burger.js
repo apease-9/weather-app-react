@@ -21,8 +21,8 @@ export default function Burger(props) {
         time={props.time}
         units={props.units}
         changeUnits={props.changeUnits}
-        otherUnits={props.otherUnits}
         changeOther={props.changeOther}
+        changeAunits={props.changeAunits}
       />
     </div>
   );

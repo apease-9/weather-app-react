@@ -6,9 +6,11 @@ export default function UnitSwitch(props) {
     if (props.units === "°C") {
       props.changeUnits("°F");
       props.changeOther("m/h");
+      props.changeAunits("imperial");
     } else {
       props.changeUnits("°C");
       props.changeOther("km/h");
+      props.changeAunits("metric");
     }
   }
   return (

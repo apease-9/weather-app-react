@@ -59,9 +59,10 @@ function App() {
   ///////////////////////////Units////////////////////////////////
   let [units, changeUnits] = useState("°C");
   let [other, changeOther] = useState("km/h");
+  let [apiUnits, changeAunits] = useState("metric");
 
   //////////////////////////////////City///////////////////////////
-  //let [city, changeCity]= useState ("Dublin");
+  let [city, changeCity] = useState("Dublin");
 
   return (
     <div className="App">
@@ -73,14 +74,46 @@ function App() {
           changeUnits={changeUnits}
           otherUnits={other}
           changeOther={changeOther}
+          apiUnits={apiUnits}
+          changeAunits={changeAunits}
         />
         <nav className="crumbs">
           <div className="pop-links">
-            <Popular name="Tokyo,Japan" id="Tokyo" />
-            <Popular name="Hong Kong,China" id="Hong-Kong" />
-            <Popular name="Paris,France" id="Paris" />
-            <Popular name="New York City,NY,US" id="NY" />
-            <Popular name="Rome,Italy" id="Rome" />
+            <Popular
+              name="Tokyo,Japan"
+              id="Tokyo"
+              city={city}
+              changeCity={changeCity}
+              apiUnits={apiUnits}
+            />
+            <Popular
+              name="Hong Kong,China"
+              id="Hong-Kong"
+              city={city}
+              changeCity={changeCity}
+              apiUnits={apiUnits}
+            />
+            <Popular
+              name="Paris,France"
+              id="Paris"
+              city={city}
+              changeCity={changeCity}
+              apiUnits={apiUnits}
+            />
+            <Popular
+              name="New York City,NY,US"
+              id="NY"
+              city={city}
+              changeCity={changeCity}
+              apiUnits={apiUnits}
+            />
+            <Popular
+              name="Rome,Italy"
+              id="Rome"
+              city={city}
+              changeCity={changeCity}
+              apiUnits={apiUnits}
+            />
           </div>
         </nav>
         <br />
