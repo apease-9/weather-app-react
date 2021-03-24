@@ -5,7 +5,7 @@ export default function UnitSwitch(props) {
   function toggleUnits() {
     if (props.units === "°C") {
       props.changeUnits("°F");
-      props.changeOther("m/h");
+      props.changeOther("mph");
       props.changeAunits("imperial");
       props.changeWindS(Math.round(props.wind * 2.237));
       props.changeCurrent(Math.round(props.current * (9 / 5) + 32));
