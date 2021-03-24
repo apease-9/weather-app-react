@@ -18,7 +18,7 @@ export default function Extra(props) {
         <li className="extra">
           Wind:
           <span className="unit-1" id="wind">
-            {props.wind}
+            {Math.round(props.wind)}
           </span>
           {props.otherUnits}
           <span className="windDe">SW</span>
