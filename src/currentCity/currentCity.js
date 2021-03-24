@@ -8,7 +8,7 @@ export default function City(props) {
       <Display time={props.time} />
       <br />
       <br />
-      <Rows />
+      <Rows units={props.units} otherUnits={props.otherUnits} />
     </div>
   );
 }

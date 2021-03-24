@@ -9,7 +9,12 @@ import "./Header.css";
 export default function Header(props) {
   return (
     <nav className={`header-stuff ${props.ani}h`}>
-      <Units />
+      <Units
+        units={props.units}
+        changeUnits={props.changeUnits}
+        otherUnits={props.otherUnits}
+        changeOther={props.changeOther}
+      />
       <Time changeTime={props.changeTime} time={props.time} />
       <Animations />
       <br />

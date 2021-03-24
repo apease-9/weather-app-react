@@ -15,7 +15,15 @@ export default function Burger(props) {
         <div className="line-2" />
         <div className="line-3" />
       </div>
-      <Header ani={direction} changeTime={props.changeTime} time={props.time} />
+      <Header
+        ani={direction}
+        changeTime={props.changeTime}
+        time={props.time}
+        units={props.units}
+        changeUnits={props.changeUnits}
+        otherUnits={props.otherUnits}
+        changeOther={props.changeOther}
+      />
     </div>
   );
 }

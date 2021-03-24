@@ -1,7 +1,7 @@
 import React from "react";
 import "./extra.css";
 
-export default function Extra() {
+export default function Extra(props) {
   return (
     <div className="extraBox cbox col-4">
       <ul>
@@ -10,7 +10,7 @@ export default function Extra() {
           <span id="dew" className="unit-0">
             20
           </span>
-          <span className="unit">°C</span>
+          {props.units}
         </li>
         <li className="extra">
           Humidity: <span id="humidity">20</span>%
@@ -20,7 +20,8 @@ export default function Extra() {
           <span className="unit-1" id="wind">
             20
           </span>
-          <span className="unit1">km/h</span> <span className="windDe">SW</span>
+          {props.otherUnits}
+          <span className="windDe">SW</span>
         </li>
       </ul>
     </div>

@@ -8,6 +8,7 @@ import Forecast from "../src/forecast/mainForecast.js";
 import Footer from "./footer.js";
 
 function App() {
+  //////////////////////date///////////////////////////////////////
   function zeroAdd(m) {
     if (m < 10) {
       m = "0" + m;
@@ -55,11 +56,24 @@ function App() {
   let month = months[now.getMonth()];
   let date24Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
   const [time, changeTime] = useState(date24Format);
+  ///////////////////////////Units////////////////////////////////
+  let [units, changeUnits] = useState("°C");
+  let [other, changeOther] = useState("km/h");
+
+  //////////////////////////////////City///////////////////////////
+  //let [city, changeCity]= useState ("Dublin");
 
   return (
     <div className="App">
       <div className="insideApp">
-        <Burger changeTime={changeTime} time={time} />
+        <Burger
+          changeTime={changeTime}
+          time={time}
+          units={units}
+          changeUnits={changeUnits}
+          otherUnits={other}
+          changeOther={changeOther}
+        />
         <nav className="crumbs">
           <div className="pop-links">
             <Popular name="Tokyo,Japan" id="Tokyo" />
@@ -71,8 +85,8 @@ function App() {
         </nav>
         <br />
         <br />
-        <City time={time} />
-        <Forecast />
+        <City time={time} units={units} otherUnits={other} />
+        <Forecast units={units} />
         <Footer />
       </div>
     </div>
