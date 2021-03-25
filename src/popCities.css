@@ -1,4 +1,4 @@
-.crumbs {
+.crumb {
   text-align: center;
   display: flex;
   min-height: fit-content;
@@ -7,10 +7,11 @@
 
 .pop-links {
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: space-between;
   list-style: none;
   padding-right: 20px;
+  left: 2px;
 }
 a {
   text-decoration: none;

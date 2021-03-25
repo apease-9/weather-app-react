@@ -12,6 +12,7 @@ export default function Form(props) {
     props.changeLon(response.data.coord.lon);
     props.changeHumidity(response.data.main.humidity);
     props.changeWindS(response.data.wind.speed);
+    props.changeWindD(response.data.wind.deg);
     props.changeCurrent(response.data.main.temp);
     props.changeFeel(response.data.main.feels_like);
     props.changeHigh(response.data.main.temp_max);
@@ -70,6 +71,7 @@ export default function Form(props) {
       let apiKey = "100f8a7c29c0b02275197751bc3ff692";
       let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${props.apiUnits}`;
       axios.get(apiURL).then(showTemperature);
+      props.changeCity(" ");
     });
   }
 

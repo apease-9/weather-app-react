@@ -14,6 +14,7 @@ export default function Rows(props) {
           humidity={props.humidity}
           wind={props.wind}
           dew={props.dew}
+          degrees={props.degrees}
         />
         <Imgs icon={props.icon} description={props.description} />
         <Dates

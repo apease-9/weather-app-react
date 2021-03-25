@@ -70,6 +70,7 @@ function App() {
   let [dew, changeDew] = useState(" ");
   let [humidity, changeHumidity] = useState(" ");
   let [wind, changeWindS] = useState(" ");
+  let [degrees, changeWindD] = useState(" ");
   let [current, changeCurrent] = useState(" ");
   let [realFeel, changeFeel] = useState(" ");
   let [high, changeHigh] = useState(" ");
@@ -102,6 +103,7 @@ function App() {
     changeLon(response.data.coord.lon);
     changeHumidity(response.data.main.humidity);
     changeWindS(response.data.wind.speed);
+    changeWindD(response.data.wind.deg);
     changeCurrent(response.data.main.temp);
     changeFeel(response.data.main.feels_like);
     changeHigh(response.data.main.temp_max);
@@ -139,12 +141,11 @@ function App() {
     changeD4(response.data.daily[4].weather[0].description);
     changeD5(response.data.daily[5].weather[0].description);
 
-    //Make an if statement to change weather icon based on what the main idea is (ie. rain, snow, sun, cloudy)
-    changeI1(response.data.daily[1].weather[0].icon);
-    changeI2(response.data.daily[2].weather[0].icon);
-    changeI3(response.data.daily[3].weather[0].icon);
-    changeI4(response.data.daily[4].weather[0].icon);
-    changeI5(response.data.daily[5].weather[0].icon);
+    changeI1(response.data.daily[1].weather[0].id);
+    changeI2(response.data.daily[2].weather[0].id);
+    changeI3(response.data.daily[3].weather[0].id);
+    changeI4(response.data.daily[4].weather[0].id);
+    changeI5(response.data.daily[5].weather[0].id);
   }
 
   let apiKey = "100f8a7c29c0b02275197751bc3ff692";
@@ -169,6 +170,7 @@ function App() {
           changeLon={changeLon}
           changeHumidity={changeHumidity}
           changeWindS={changeWindS}
+          changeWindD={changeWindD}
           changeCurrent={changeCurrent}
           changeFeel={changeFeel}
           changeHigh={changeHigh}
@@ -183,98 +185,23 @@ function App() {
           low={low}
         />
         <nav className="crumbs">
-          <div className="pop-links">
-            <Popular
-              name="Tokyo,Japan"
-              id="Tokyo"
-              city={city}
-              changeCity={changeCity}
-              apiUnits={apiUnits}
-              changeLat={changeLat}
-              changeLon={changeLon}
-              changeHumidity={changeHumidity}
-              changeWindS={changeWindS}
-              changeCurrent={changeCurrent}
-              changeFeel={changeFeel}
-              changeHigh={changeHigh}
-              changeLow={changeLow}
-              changeIcon={changeIcon}
-              changeD={changeD}
-              changeC={changeC}
-            />
-            <Popular
-              name="Hong Kong,China"
-              id="Hong-Kong"
-              city={city}
-              changeCity={changeCity}
-              apiUnits={apiUnits}
-              changeLat={changeLat}
-              changeLon={changeLon}
-              changeHumidity={changeHumidity}
-              changeWindS={changeWindS}
-              changeCurrent={changeCurrent}
-              changeFeel={changeFeel}
-              changeHigh={changeHigh}
-              changeLow={changeLow}
-              changeIcon={changeIcon}
-              changeD={changeD}
-              changeC={changeC}
-            />
-            <Popular
-              name="Paris,France"
-              id="Paris"
-              city={city}
-              changeCity={changeCity}
-              apiUnits={apiUnits}
-              changeLat={changeLat}
-              changeLon={changeLon}
-              changeHumidity={changeHumidity}
-              changeWindS={changeWindS}
-              changeCurrent={changeCurrent}
-              changeFeel={changeFeel}
-              changeHigh={changeHigh}
-              changeLow={changeLow}
-              changeIcon={changeIcon}
-              changeD={changeD}
-              changeC={changeC}
-            />
-            <Popular
-              name="New York City,NY,US"
-              id="NY"
-              city={city}
-              changeCity={changeCity}
-              apiUnits={apiUnits}
-              changeLat={changeLat}
-              changeLon={changeLon}
-              changeHumidity={changeHumidity}
-              changeWindS={changeWindS}
-              changeCurrent={changeCurrent}
-              changeFeel={changeFeel}
-              changeHigh={changeHigh}
-              changeLow={changeLow}
-              changeIcon={changeIcon}
-              changeD={changeD}
-              changeC={changeC}
-            />
-            <Popular
-              name="Rome,Italy"
-              id="Rome"
-              city={city}
-              changeCity={changeCity}
-              apiUnits={apiUnits}
-              changeLat={changeLat}
-              changeLon={changeLon}
-              changeHumidity={changeHumidity}
-              changeWindS={changeWindS}
-              changeCurrent={changeCurrent}
-              changeFeel={changeFeel}
-              changeHigh={changeHigh}
-              changeLow={changeLow}
-              changeIcon={changeIcon}
-              changeD={changeD}
-              changeC={changeC}
-            />
-          </div>
+          <Popular
+            city={city}
+            changeCity={changeCity}
+            apiUnits={apiUnits}
+            changeLat={changeLat}
+            changeLon={changeLon}
+            changeHumidity={changeHumidity}
+            changeWindS={changeWindS}
+            changeWindD={changeWindD}
+            changeCurrent={changeCurrent}
+            changeFeel={changeFeel}
+            changeHigh={changeHigh}
+            changeLow={changeLow}
+            changeIcon={changeIcon}
+            changeD={changeD}
+            changeC={changeC}
+          />
         </nav>
         <br />
         <br />
@@ -294,6 +221,7 @@ function App() {
           icon={icon}
           description={description}
           dew={dew}
+          degrees={degrees}
         />
         <Forecast
           units={units}

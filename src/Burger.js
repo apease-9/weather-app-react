@@ -27,6 +27,7 @@ export default function Burger(props) {
         changeLon={props.changeLon}
         changeHumidity={props.changeHumidity}
         changeWindS={props.changeWindS}
+        changeWindD={props.changeWindD}
         changeCurrent={props.changeCurrent}
         changeFeel={props.changeFeel}
         changeHigh={props.changeHigh}

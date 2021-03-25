@@ -13,16 +13,6 @@ export default function Header(props) {
         changeUnits={props.changeUnits}
         changeOther={props.changeOther}
         changeAunits={props.changeAunits}
-        changeWindS={props.changeWindS}
-        changeCurrent={props.changeCurrent}
-        changeFeel={props.changeFeel}
-        changeHigh={props.changeHigh}
-        changeLow={props.changeLow}
-        wind={props.wind}
-        current={props.current}
-        realFeel={props.realFeel}
-        high={props.high}
-        low={props.low}
       />
       <Time changeTime={props.changeTime} time={props.time} />
       <br />
@@ -34,6 +24,7 @@ export default function Header(props) {
         changeLon={props.changeLon}
         changeHumidity={props.changeHumidity}
         changeWindS={props.changeWindS}
+        changeWindD={props.changeWindD}
         changeCurrent={props.changeCurrent}
         changeFeel={props.changeFeel}
         changeHigh={props.changeHigh}

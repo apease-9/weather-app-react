@@ -7,20 +7,10 @@ export default function UnitSwitch(props) {
       props.changeUnits("°F");
       props.changeOther("mph");
       props.changeAunits("imperial");
-      props.changeWindS(Math.round(props.wind * 2.237));
-      props.changeCurrent(Math.round(props.current * (9 / 5) + 32));
-      props.changeFeel(Math.round(props.realFeel * (9 / 5) + 32));
-      props.changeHigh(Math.round(props.high * (9 / 5) + 32));
-      props.changeLow(Math.round(props.low * (9 / 5) + 32));
     } else {
       props.changeUnits("°C");
       props.changeOther("m/s");
       props.changeAunits("metric");
-      props.changeWindS(Math.round(props.wind / 2.237));
-      props.changeCurrent(Math.round(props.current - 32) * (5 / 9));
-      props.changeFeel(Math.round(props.realFeel - 32) * (5 / 9));
-      props.changeHigh(Math.round(props.high - 32) * (5 / 9));
-      props.changeLow(Math.round(props.low - 32) * (5 / 9));
     }
   }
   return (

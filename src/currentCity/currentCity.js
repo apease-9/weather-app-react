@@ -25,6 +25,7 @@ export default function City(props) {
         icon={props.icon}
         description={props.description}
         dew={props.dew}
+        degrees={props.degrees}
       />
     </div>
   );
