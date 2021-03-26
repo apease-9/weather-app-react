@@ -137,6 +137,15 @@ export default function Imgs(props) {
       </div>
     );
   } else {
-    return <div>--</div>;
+    return (
+      <div className="imgBox cbox col-4">
+        <p id="weatherDescription" className="weatherD">
+          {props.description}
+        </p>
+        <br />
+        <br />
+        <div>--</div>
+      </div>
+    );
   }
 }

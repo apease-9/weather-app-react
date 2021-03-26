@@ -108,8 +108,8 @@ function App() {
     changeFeel(response.data.main.feels_like);
     changeHigh(response.data.main.temp_max);
     changeLow(response.data.main.temp_min);
-    changeIcon(response.data.weather.id);
-    changeD(response.data.weather.description);
+    changeIcon(response.data.weather[0].id);
+    changeD(response.data.weather[0].description);
     changeC(response.data.name);
 
     ///////////////////////////////Forecast//////////////////////////////////
