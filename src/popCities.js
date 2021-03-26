@@ -3,6 +3,7 @@ import "./popCities.css";
 import axios from "axios";
 
 export default function Popular(props) {
+  props.changeCity(" ");
   function showTemperature(response) {
     props.changeLat(response.data.coord.lat);
     props.changeLon(response.data.coord.lon);
@@ -13,8 +14,8 @@ export default function Popular(props) {
     props.changeFeel(response.data.main.feels_like);
     props.changeHigh(response.data.main.temp_max);
     props.changeLow(response.data.main.temp_min);
-    props.changeIcon(response.data.weather.id);
-    props.changeD(response.data.weather.description);
+    props.changeIcon(response.data.weather[0].id);
+    props.changeD(response.data.weather[0].description);
     props.changeC(response.data.name);
   }
 
