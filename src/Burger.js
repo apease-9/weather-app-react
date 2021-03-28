@@ -17,32 +17,24 @@ export default function Burger(props) {
       </div>
       <Header
         ani={direction}
-        changeTime={props.changeTime}
         time={props.time}
-        units={props.units}
-        changeUnits={props.changeUnits}
-        changeOther={props.changeOther}
-        changeAunits={props.changeAunits}
-        changeLat={props.changeLat}
-        changeLon={props.changeLon}
-        changeHumidity={props.changeHumidity}
-        changeWindS={props.changeWindS}
-        changeWindD={props.changeWindD}
-        changeCurrent={props.changeCurrent}
-        changeFeel={props.changeFeel}
-        changeHigh={props.changeHigh}
-        changeLow={props.changeLow}
-        changeIcon={props.changeIcon}
-        changeD={props.changeD}
+        cF={props.cF}
+        mSH={props.mSH}
         apiUnits={props.apiUnits}
-        changeCity={props.changeCity}
         city={props.city}
-        wind={props.wind}
-        current={props.current}
+        changeCity={props.changeCity}
+        lat={props.lat}
+        lon={props.lon}
+        dewPoint={props.dewPoint}
+        windSpeed={props.windSpeed}
+        windDegree={props.windDegree}
+        temperature={props.temperature}
         realFeel={props.realFeel}
         high={props.high}
         low={props.low}
-        changeC={props.changeC}
+        icon={props.icon}
+        description={props.description}
+        cityName={props.cityName}
       />
     </div>
   );

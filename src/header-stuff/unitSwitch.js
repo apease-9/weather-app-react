@@ -4,13 +4,13 @@ import "./Switchs.css";
 export default function UnitSwitch(props) {
   function toggleUnits() {
     if (props.units === "°C") {
-      props.changeUnits("°F");
-      props.changeOther("mph");
-      props.changeAunits("imperial");
+      props.cF("°F");
+      props.mSH("mph");
+      props.apiUnits("imperial");
     } else {
-      props.changeUnits("°C");
-      props.changeOther("m/s");
-      props.changeAunits("metric");
+      props.cF("°C");
+      props.mSH("m/s");
+      props.apiUnits("metric");
     }
   }
   return (

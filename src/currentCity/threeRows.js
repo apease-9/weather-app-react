@@ -9,17 +9,16 @@ export default function Rows(props) {
     <div className="container">
       <div className="currentWeather row">
         <Extra
-          units={props.units}
-          otherUnits={props.otherUnits}
+          cF={props.cF}
+          mSH={props.mSH}
           humidity={props.humidity}
-          wind={props.wind}
-          dew={props.dew}
-          degrees={props.degrees}
+          windSpeed={props.windSpeed}
+          windDegree={props.windDegree}
         />
         <Imgs icon={props.icon} description={props.description} />
         <Dates
-          units={props.units}
-          current={props.current}
+          cF={props.cF}
+          temperature={props.temperature}
           realFeel={props.realFeel}
           high={props.high}
           low={props.low}

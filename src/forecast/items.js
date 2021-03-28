@@ -90,7 +90,7 @@ export default function Items(props) {
         <div>
           <ReactAnimatedWeather
             icon={"CLEAR_DAY"}
-            color={"#f4d160"}
+            color={"#ffbe0f"}
             size={50}
             animate={true}
           />

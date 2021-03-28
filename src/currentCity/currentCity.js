@@ -7,25 +7,24 @@ export default function City(props) {
     <div className="city">
       <Display
         time={props.time}
-        city={props.city}
+        cityName={props.cityName}
         lat={props.lat}
         lon={props.lon}
       />
       <br />
       <br />
       <Rows
-        units={props.units}
-        otherUnits={props.otherUnits}
+        units={props.cF}
+        mSH={props.mSH}
         humidity={props.humidity}
-        wind={props.wind}
-        current={props.current}
+        windSpeed={props.windSpeed}
+        temperature={props.temperature}
         realFeel={props.realFeel}
         high={props.high}
         low={props.low}
         icon={props.icon}
         description={props.description}
-        dew={props.dew}
-        degrees={props.degrees}
+        windDegree={props.windDegree}
       />
     </div>
   );

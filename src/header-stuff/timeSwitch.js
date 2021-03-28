@@ -49,26 +49,25 @@ export default function Time(props) {
     ];
     let month = months[now.getMonth()];
     let date24Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
-    props.changeTime(date24Format);
     if (props.time === date24Format) {
       let date12Format = null;
       if (hour === 12) {
         date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}PM`;
-        props.changeTime(date12Format);
+        props.time(date12Format);
       } else if (hour >= 13 && hour < 24) {
         date12Format = `${day} ${month} ${date}, ${year}, ${
           hour - 12
         }:${minutes}PM`;
-        props.changeTime(date12Format);
+        props.time(date12Format);
       } else if (hour === 24) {
         date12Format = `${day} ${month} ${date}, ${year}, 12:${minutes}AM`;
-        props.changeTime(date12Format);
+        props.time(date12Format);
       } else {
         date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}AM`;
-        props.changeTime(date12Format);
+        props.time(date12Format);
       }
     } else {
-      props.changeTime(date24Format);
+      props.time(date24Format);
     }
   }
   return (

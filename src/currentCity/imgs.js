@@ -54,7 +54,7 @@ export default function Imgs(props) {
     return (
       <div className="imgBox cbox col-4">
         <p id="weatherDescription" className="weatherD">
-          {props.description}--
+          {props.description}
         </p>
         <br />
         <br />
@@ -80,7 +80,7 @@ export default function Imgs(props) {
     return (
       <div className="imgBox cbox col-4">
         <p id="weatherDescription" className="weatherD">
-          {props.description}--
+          {props.description}
         </p>
         <br />
         <br />
@@ -104,7 +104,7 @@ export default function Imgs(props) {
     return (
       <div className="imgBox cbox col-4">
         <p id="weatherDescription" className="weatherD">
-          {props.description}--
+          {props.description}
         </p>
         <br />
         <br />
@@ -121,7 +121,7 @@ export default function Imgs(props) {
     return (
       <div className="imgBox cbox col-4">
         <p id="weatherDescription" className="weatherD">
-          {props.description}--
+          {props.description}
         </p>
         <br />
         <br />

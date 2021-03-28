@@ -31,7 +31,7 @@ export default function Forecast(props) {
           icon={props.icon1}
           description={props.d1}
           high={props.tempH1}
-          units={props.units}
+          units={props.cF}
           low={props.tempL1}
         />
         <Items
@@ -40,7 +40,7 @@ export default function Forecast(props) {
           icon={props.icon2}
           description={props.d2}
           high={props.tempH2}
-          units={props.units}
+          units={props.cF}
           low={props.tempL2}
         />
         <Items
@@ -49,7 +49,7 @@ export default function Forecast(props) {
           icon={props.icon3}
           description={props.d3}
           high={props.tempH3}
-          units={props.units}
+          units={props.cF}
           low={props.tempL3}
         />
         <Items
@@ -58,7 +58,7 @@ export default function Forecast(props) {
           icon={props.icon4}
           description={props.d4}
           high={props.tempH4}
-          units={props.units}
+          units={props.cF}
           low={props.tempL4}
         />
         <Items
@@ -67,7 +67,7 @@ export default function Forecast(props) {
           icon={props.icon5}
           description={props.d5}
           high={props.tempH5}
-          units={props.units}
+          units={props.cF}
           low={props.tempL5}
         />
         <br />

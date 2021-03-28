@@ -6,7 +6,7 @@ export default function Display(props) {
       <p>
         <span className="date">{props.time}</span>
       </p>
-      <h1 id="search">{props.city}</h1>
+      <h1 id="search">{props.cityName}</h1>
 
       <p id="coordinates">
         Lat: {props.lat}, Lon: {props.lon}
