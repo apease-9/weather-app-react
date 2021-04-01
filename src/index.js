@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, /*{ useState }*/ from "react";
 import ReactDOM from "react-dom";
 import "./style.css";
-import Burger from "./Burger";
+/*import Burger from "./Burger";
 import "./popCities.css";
 import City from "../src/currentCity/currentCity.js";
 import Forecast from "../src/forecast/mainForecast.js";
-import Footer from "./footer.js";
-import axios from "axios";
+import Footer from "./footer.js";*/
+//import axios from "axios";
 
 function App() {
+  return <div>Hello World</div>;
+  /*
   //////////////////////date///////////////////////////////////////
   function zeroAdd(m) {
     if (m < 10) {
@@ -67,7 +69,7 @@ function App() {
 
   //////////////////////////////////City///////////////////////////
   const [weatherData, setData] = useState({ ready: false });
-  const [city, changeCity] = useState(" ");
+  const [city, changeCity] = useState("Dublin,IE");
 
   function showTemperature(response) {
     console.log(city);
@@ -75,6 +77,7 @@ function App() {
       cityName: response.data.name,
       lat: response.data.coord.lat,
       lon: response.data.coord.lon,
+      ready: true,
       day0: {
         humidity: response.data.main.humidity,
         windSpeed: response.data.wind.speed,
@@ -89,7 +92,7 @@ function App() {
     });
 
     ///////////////////////////////Forecast//////////////////////////////////
-    let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.day0.lat}&lon=${weatherData.day0.lon}&units=${units.apiUnits}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
+    let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.lon}&units=${units.apiUnits}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
     axios.get(forecastURL).then(showForecast);
   }
 
@@ -98,7 +101,6 @@ function App() {
 
   function showForecast(response) {
     setData({
-      ready: true,
       day0: {
         dewPoint: Math.round(response.data.daily[0].dew_point),
       },
@@ -138,27 +140,36 @@ function App() {
   function toggleCityJ(event) {
     event.preventDefault();
     changeCity("Tokyo,JP");
+    setData({ ready: false });
   }
   function toggleCityH(event) {
     event.preventDefault();
     changeCity("Hong Kong,CN");
+    setData({ ready: false });
   }
   function toggleCityP(event) {
     event.preventDefault();
     changeCity("Paris,FR");
+    setData({ ready: false });
   }
   function toggleCityN(event) {
     event.preventDefault();
     changeCity("New York City,NY,US");
+    setData({ ready: false });
   }
   function toggleCityR(event) {
     event.preventDefault();
     changeCity("Rome,IT");
+    setData({ ready: false });
   }
   if (weatherData.ready) {
     return (
-      <div className="App">
-        <div className="insideApp">
+      <div className="insideApp">
+        <p>{weatherData.cityName}</p>
+      </div>
+    );
+    /* <div className="App">
+       <div className="insideApp">
           <Burger
             time={units.time}
             cF={units.cF}
@@ -225,7 +236,7 @@ function App() {
             low={weatherData.day0.low}
             icon={weatherData.day0.icon}
             description={weatherData.day0.description}
-            windDegree={weatherData.day0.degrees}
+            windDegree={weatherData.day0.windDegree}
           />
           <Forecast
             cF={units.cF}
@@ -261,7 +272,7 @@ function App() {
         <p>Loading...</p>
       </div>
     );
-  }
+  }*/
 }
 
 const rootElement = document.getElementById("root");

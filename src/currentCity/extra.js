@@ -377,7 +377,7 @@ export default function Extra(props) {
         </ul>
       </div>
     );
-  } else if (props.windDegree >= 326.25 && props.windDegree <= 348.75) {
+  } else {
     return (
       <div className="extraBox cbox col-4">
         <ul>

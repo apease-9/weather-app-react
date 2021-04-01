@@ -7,7 +7,9 @@ export default function Date(props) {
       <ul>
         <li id="tempNow">
           Currently
-          <span className="tempNum unit-0">{Math.round(props.current)}</span>
+          <span className="tempNum unit-0">
+            {Math.round(props.temperature)}
+          </span>
           <span className="unit">{props.units}</span>
         </li>
         <li>
