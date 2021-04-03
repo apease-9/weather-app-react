@@ -1,18 +1,10 @@
 import React from "react";
-import "./extra.css";
 
 export default function Extra(props) {
   if (props.windDegree >= 348.75 || props.windDegree <= 11.25) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>

@@ -1,17 +1,124 @@
-import React /*,{ useState }*/ from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import axios from "axios";
+import Extra from "./extra";
+import Imgs from "./imgs";
 import "./style.css";
-/*import Burger from "./Burger";
-import "./popCities.css";
-import City from "../src/currentCity/currentCity.js";
-import Forecast from "../src/forecast/mainForecast.js";
-import Footer from "./footer.js";*/
-//import axios from "axios";
+import "./footer.css";
+import "./Burger.css";
+import "./Switchs.css";
+import "./Header.css";
+import "./imgs.css";
+import "./cityDisplay.css";
+import "./Switchs.css";
 
 function App() {
-  return <div>Hello World</div>;
-  /*
+  const [city, changeCity] = useState({
+    city: "Dublin",
+    country: "IE",
+  });
+  function searchCity() {
+    let apiKey = "59179277cd09967203757d7645c1f90e";
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city.city},${city.state},${city.country}&units=${units.apiUnits}&appid=${apiKey}`;
+    console.log(apiURL);
+    if (city.city.length > 0) {
+      function cityExists(apiURL, callback) {
+        fetch(apiURL, { method: "head" }).then(function (status) {
+          callback(status.ok);
+        });
+      }
+      cityExists(apiURL, function (exists) {
+        if (
+          exists
+            ? axios.get(apiURL).then(showTemperature)
+            : alert("😓 Error: could not find city. Please check spelling.")
+        );
+      });
+    }
+  }
+
+  function changeCityI(event) {
+    event.preventDefault();
+    searchCity();
+  }
+  function updateSearchC(event) {
+    event.preventDefault();
+    let choosenC = event.target.value;
+    console.log(choosenC.trim());
+    changeCity({
+      city: choosenC.trim(),
+    });
+  }
+  function updateSearchS(event) {
+    event.preventDefault();
+    let choosenS = event.target.value;
+    console.log(choosenS.trim());
+    changeCity({
+      state: choosenS.trim(),
+    });
+  }
+  function updateSearchT(event) {
+    event.preventDefault();
+    let choosenT = event.target.value;
+    console.log(choosenT.trim());
+    changeCity({
+      country: choosenT.trim(),
+    });
+  }
+
+  function showPosition() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setData({
+        lon: position.coords.longitude,
+        lat: position.coords.latitude,
+      });
+    });
+  }
+  let [direction, popBurger] = useState("shrink");
+  function toggleBurger() {
+    if (direction === "shrink" ? popBurger("pop") : popBurger("shrink"));
+  }
+  function toggleUnits() {
+    if (units.cF === "°C") {
+      changeUnits({
+        cF: "°F",
+        mSH: "mph",
+        apiUnits: "imperial",
+      });
+      weatherData.day0.temperature = Math.round(
+        weatherData.day0.temperature * (9 / 5) + 32
+      );
+      weatherData.day0.realFeel = Math.round(
+        weatherData.day0.realFeel * (9 / 5) + 32
+      );
+      weatherData.day0.high = Math.round(weatherData.day0.high * (9 / 5) + 32);
+      weatherData.day0.low = Math.round(weatherData.day0.low * (9 / 5) + 32);
+      weatherData.day0.windSpeed = Math.round(
+        weatherData.day0.windSpeed * 2.237
+      );
+    } else {
+      changeUnits({
+        cF: "°C",
+        mSH: "m/s",
+        apiUnits: "metric",
+      });
+      weatherData.day0.temperature = Math.round(
+        (weatherData.day0.temperature - 32) * (5 / 9)
+      );
+      weatherData.day0.realFeel = Math.round(
+        (weatherData.day0.realFeel - 32) * (5 / 9)
+      );
+      weatherData.day0.high = Math.round(
+        (weatherData.day0.high - 32) * (5 / 9)
+      );
+      weatherData.day0.low = Math.round((weatherData.day0.low - 32) * (5 / 9));
+      weatherData.day0.windSpeed = Math.round(
+        weatherData.day0.windSpeed / 2.237
+      );
+    }
+  }
   //////////////////////date///////////////////////////////////////
+
   function zeroAdd(m) {
     if (m < 10) {
       m = "0" + m;
@@ -58,18 +165,49 @@ function App() {
   ];
   let month = months[now.getMonth()];
   let date24Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
+  function toggleTime() {
+    if (units.time === date24Format) {
+      let date12Format = null;
+      if (hour === 12) {
+        date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}PM`;
+        changeUnits({
+          time: date12Format,
+        });
+      } else if (hour >= 13 && hour < 24) {
+        date12Format = `${day} ${month} ${date}, ${year}, ${
+          hour - 12
+        }:${minutes}PM`;
+        changeUnits({
+          time: date12Format,
+        });
+      } else if (hour === 24) {
+        date12Format = `${day} ${month} ${date}, ${year}, 12:${minutes}AM`;
+        changeUnits({
+          time: date12Format,
+        });
+      } else {
+        date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}AM`;
+        changeUnits({
+          time: date12Format,
+        });
+      }
+    } else {
+      changeUnits({
+        time: date24Format,
+      });
+    }
+  }
 
   ///////////////////////////Units////////////////////////////////
-  const units = {
+  const [units, changeUnits] = useState({
     cF: "°C",
     mSH: "m/s",
     apiUnits: "metric",
     time: date24Format,
-  };
+  });
 
   //////////////////////////////////City///////////////////////////
   const [weatherData, setData] = useState({ ready: false });
-  const [city, changeCity] = useState("Dublin,IE");
 
   function showTemperature(response) {
     console.log(city);
@@ -77,119 +215,142 @@ function App() {
       cityName: response.data.name,
       lat: response.data.coord.lat,
       lon: response.data.coord.lon,
-      ready: true,
       day0: {
         humidity: response.data.main.humidity,
         windSpeed: response.data.wind.speed,
         windDegree: response.data.wind.deg,
-        temperature: response.data.main.temp,
-        realFeel: response.data.main.feels_like,
-        high: response.data.main.temp_max,
-        low: response.data.main.temp_min,
+        temperature: Math.round(response.data.main.temp),
+        realFeel: Math.round(response.data.main.feels_like),
+        high: Math.round(response.data.main.temp_max),
+        low: Math.round(response.data.main.temp_min),
         icon: response.data.weather[0].id,
         description: response.data.weather[0].description,
       },
-    });
-
-    ///////////////////////////////Forecast//////////////////////////////////
-    let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData.lat}&lon=${weatherData.lon}&units=${units.apiUnits}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
-    axios.get(forecastURL).then(showForecast);
-  }
-
-  let apiKey = "100f8a7c29c0b02275197751bc3ff692";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units.apiUnits}&appid=${apiKey}`;
-
-  function showForecast(response) {
-    setData({
-      day0: {
-        dewPoint: Math.round(response.data.daily[0].dew_point),
-      },
-      day1: {
-        high: Math.round(response.data.daily[1].temp.max),
-        low: Math.round(response.data.daily[1].temp.min),
-        description: response.data.daily[1].weather[0].description,
-        icon: response.data.daily[1].weather[0].id,
-      },
-      day2: {
-        high: Math.round(response.data.daily[2].temp.max),
-        low: Math.round(response.data.daily[2].temp.min),
-        description: response.data.daily[2].weather[0].description,
-        icon: response.data.daily[2].weather[0].id,
-      },
-      day3: {
-        high: Math.round(response.data.daily[3].temp.max),
-        low: Math.round(response.data.daily[3].temp.min),
-        description: response.data.daily[3].weather[0].description,
-        icon: response.data.daily[3].weather[0].id,
-      },
-      day4: {
-        high: Math.round(response.data.daily[4].temp.max),
-        low: Math.round(response.data.daily[4].temp.min),
-        description: response.data.daily[4].weather[0].description,
-        icon: response.data.daily[4].weather[0].id,
-      },
-      day5: {
-        high: Math.round(response.data.daily[5].temp.max),
-        low: Math.round(response.data.daily[5].temp.min),
-        description: response.data.daily[5].weather[0].description,
-        icon: response.data.daily[5].weather[0].id,
-      },
+      ready: true,
     });
   }
+
   //////////////////Popular Cities////////////////////
   function toggleCityJ(event) {
     event.preventDefault();
-    changeCity("Tokyo,JP");
+    changeCity({
+      city: "Tokyo",
+      country: "JP",
+    });
     setData({ ready: false });
   }
   function toggleCityH(event) {
     event.preventDefault();
-    changeCity("Hong Kong,CN");
+    changeCity({
+      city: "Hong Kong",
+      country: "CN",
+    });
     setData({ ready: false });
   }
   function toggleCityP(event) {
     event.preventDefault();
-    changeCity("Paris,FR");
+    changeCity({
+      city: "Paris",
+      country: "FR",
+    });
     setData({ ready: false });
   }
   function toggleCityN(event) {
     event.preventDefault();
-    changeCity("New York City,NY,US");
+    changeCity({
+      city: "New York City",
+      state: "NY",
+      country: "US",
+    });
     setData({ ready: false });
   }
   function toggleCityR(event) {
     event.preventDefault();
-    changeCity("Rome,IT");
+    changeCity({
+      city: "Rome",
+      country: "IT",
+    });
     setData({ ready: false });
   }
   if (weatherData.ready) {
+    console.log(city);
     return (
-      <div className="insideApp">
-        <p>{weatherData.cityName}</p>
-      </div>
-    );
-    /* <div className="App">
-       <div className="insideApp">
-          <Burger
-            time={units.time}
-            cF={units.cF}
-            mSH={units.mSH}
-            apiUnits={units.apiUnits}
-            city={city}
-            changeCity={changeCity}
-            lat={units.lat}
-            lon={units.lon}
-            dewPoint={weatherData.day0.dewPoint}
-            windSpeed={weatherData.day0.windSpeed}
-            windDegree={weatherData.day0.windDegree}
-            temperature={weatherData.day0.temperature}
-            realFeel={weatherData.day0.realFeel}
-            high={weatherData.day0.high}
-            low={weatherData.day0.low}
-            icon={weatherData.day0.icon}
-            description={weatherData.day0.description}
-            cityName={weatherData.cityName}
-          />
+      <div className="App">
+        <div className="insideApp">
+          <div>
+            <div className={`burger ${direction}`} onClick={toggleBurger}>
+              <div className="line-1" />
+              <div className="line-2" />
+              <div className="line-3" />
+            </div>
+            <nav className={`header-stuff ${direction}h`}>
+              <div id="current">
+                <span id="metric">Metric</span>
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    name="switchUnits"
+                    onChange={toggleUnits}
+                  />
+                  <span className="slider round"></span>
+                </label>
+                <span id="Imperial">Imperial</span>
+              </div>
+              <div id="current-time">
+                <span id="24-hour">24-hour</span>
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    name="switchTime"
+                    onChange={toggleTime}
+                  />
+                  <span className="slider round"></span>
+                </label>
+                <span id="12-hour">12-hour</span>
+              </div>
+              <br />
+              <br />
+              <br />
+              <br />
+              <div className="cityForm">
+                <div id="form">
+                  <form className="changeCity" onSubmit={changeCityI}>
+                    <input
+                      type="text"
+                      placeholder="City"
+                      className="cityInput"
+                      onChange={updateSearchC}
+                    />
+                    <input
+                      type="text"
+                      placeholder="State"
+                      className="stateInput"
+                      onChange={updateSearchS}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Country"
+                      className="countryInput"
+                      onChange={updateSearchT}
+                    />
+                    <br />
+                    <br />
+                    <button
+                      type="submit"
+                      className="citySubmit"
+                      id="citySubmit"
+                    >
+                      Change city
+                    </button>
+                  </form>
+                  <button id="currentLocation" onClick={showPosition}>
+                    Use current location
+                  </button>
+                </div>
+              </div>
+              <br />
+            </nav>
+          </div>
           <nav className="crumbs">
             <div className="pop-links">
               <div className="crumb" id="Tokyo">
@@ -221,58 +382,94 @@ function App() {
           </nav>
           <br />
           <br />
-          <City
-            time={units.time}
-            cF={units.cF}
-            mSH={units.mSH}
-            cityName={weatherData.cityName}
-            lat={weatherData.lat}
-            lon={weatherData.lon}
-            humidity={weatherData.day0.humidity}
-            windSpeed={weatherData.day0.windSpeed}
-            temperature={weatherData.day0.temperature}
-            realFeel={weatherData.day0.realFeel}
-            high={weatherData.day0.high}
-            low={weatherData.day0.low}
-            icon={weatherData.day0.icon}
-            description={weatherData.day0.description}
-            windDegree={weatherData.day0.windDegree}
-          />
-          <Forecast
-            cF={units.cF}
-            tempH1={weatherData.day1.high}
-            tempH2={weatherData.day2.high}
-            tempH3={weatherData.day3.high}
-            tempH4={weatherData.day4.high}
-            tempH5={weatherData.day5.high}
-            tempL1={weatherData.day1.low}
-            tempL2={weatherData.day2.low}
-            tempL3={weatherData.day3.low}
-            tempL4={weatherData.day4.low}
-            tempL5={weatherData.day5.low}
-            d1={weatherData.day1.description}
-            d2={weatherData.day2.description}
-            d3={weatherData.day3.description}
-            d4={weatherData.day4.description}
-            d5={weatherData.day5.description}
-            icon1={weatherData.day1.icon}
-            icon2={weatherData.day2.icon}
-            icon3={weatherData.day3.icon}
-            icon4={weatherData.day4.icon}
-            icon5={weatherData.day5.icon}
-          />
-          <Footer />
+          <div className="city">
+            <div id="currentCity">
+              <p>
+                <span className="date">{units.time}</span>
+              </p>
+              <h1 id="search">{weatherData.cityName}</h1>
+
+              <p id="coordinates">
+                Lat: {weatherData.lat}, Lon: {weatherData.lon}
+              </p>
+            </div>
+            <br />
+            <br />
+            <div className="container">
+              <div className="currentWeather row">
+                <Extra
+                  cF={units.cF}
+                  mSH={units.mSH}
+                  humidity={weatherData.day0.humidity}
+                  windSpeed={weatherData.day0.windSpeed}
+                  windDegree={weatherData.day0.windDegree}
+                />
+                <Imgs
+                  icon={weatherData.day0.icon}
+                  description={weatherData.day0.description}
+                />
+                <div className="dateBox cbox col-4">
+                  <ul>
+                    <li id="tempNow">
+                      Currently
+                      <span className="tempNum unit-0">
+                        {weatherData.day0.temperature}
+                      </span>
+                      <span className="unit">{units.cF}</span>
+                    </li>
+                    <li>
+                      Real Feel:
+                      <span className="realFeel unit-0">
+                        {weatherData.day0.realFeel}
+                      </span>
+                      <span className="unit">{units.cF}</span>
+                    </li>
+                    <li>
+                      High:
+                      <span className="temp-max unit-0">
+                        {weatherData.day0.high}
+                      </span>
+                      <span className="unit">{units.cF}</span>
+                    </li>
+
+                    <li>
+                      Low:
+                      <span className="temp-min unit-0">
+                        {Math.round(weatherData.day0.low)}
+                      </span>
+                      <span className="unit">{units.cF}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <footer>
+          <p>
+            <span>
+              <a href="https://github.com/apease-9/weather-app">
+                Open-source code
+              </a>
+              by Alia Pease
+            </span>
+            <br />
+            <span id="WeatherData">
+              Weather Data Provider:
+              <a href="https://openweathermap.org/">OpenWeather</a>
+            </span>
+          </p>
+        </footer>
       </div>
     );
   } else {
-    axios.get(apiURL).then(showTemperature);
+    searchCity();
     return (
       <div className="error">
         <p>Loading...</p>
       </div>
     );
-  }*/
+  }
 }
 
 const rootElement = document.getElementById("root");

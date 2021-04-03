@@ -1,9 +1,0 @@
-.currentWeather {
-  display: flex;
-  justify-content: space-around;
-  flex-flow: wrap;
-}
-.currentWeather li {
-  display: block;
-  margin: 0;
-}
