@@ -304,6 +304,7 @@ function App() {
                       type="submit"
                       className="citySubmit"
                       id="citySubmit"
+                      onclick={changeCityI}
                     >
                       Change city
                     </button>
