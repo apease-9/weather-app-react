@@ -4,9 +4,9 @@ import axios from "axios";
 import Extra from "./extra";
 import Imgs from "./imgs";
 import Forecast from "./forecast";
+import Footer from "./footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
-import "./footer.css";
 import "./Burger.css";
 import "./Switchs.css";
 import "./Header.css";
@@ -416,21 +416,7 @@ function App() {
             />
           </div>
 
-          <footer>
-            <p>
-              <span>
-                <a href="https://github.com/apease-9/weather-app">
-                  Open-source code
-                </a>
-                by Alia Pease
-              </span>
-              <br />
-              <span id="WeatherData">
-                Weather Data Provider:
-                <a href="https://openweathermap.org/">OpenWeather</a>
-              </span>
-            </p>
-          </footer>
+          <Footer />
         </div>
       </div>
     );
