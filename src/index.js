@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import Extra from "./extra";
 import Imgs from "./imgs";
+import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import "./footer.css";
 import "./Burger.css";
@@ -11,6 +12,8 @@ import "./Header.css";
 import "./imgs.css";
 import "./cityDisplay.css";
 import "./Switchs.css";
+import "./main.css";
+import "./allstyles.css";
 
 function App() {
   const [city, changeCity] = useState({
@@ -66,12 +69,16 @@ function App() {
     });
   }
 
-  function showPosition() {
+  function showPosition(event) {
+    event.preventDefault();
     navigator.geolocation.getCurrentPosition(function (position) {
       setData({
         lon: position.coords.longitude,
         lat: position.coords.latitude,
       });
+      let apiKey = "59179277cd09967203757d7645c1f90e";
+      let positionURL = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${units.apiUnits}&appid=${apiKey}`;
+      axios.get(positionURL).then(showTemperature);
     });
   }
   let [direction, popBurger] = useState("shrink");
@@ -165,38 +172,6 @@ function App() {
   ];
   let month = months[now.getMonth()];
   let date24Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}`;
-  function toggleTime() {
-    if (units.time === date24Format) {
-      let date12Format = null;
-      if (hour === 12) {
-        date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}PM`;
-        changeUnits({
-          time: date12Format,
-        });
-      } else if (hour >= 13 && hour < 24) {
-        date12Format = `${day} ${month} ${date}, ${year}, ${
-          hour - 12
-        }:${minutes}PM`;
-        changeUnits({
-          time: date12Format,
-        });
-      } else if (hour === 24) {
-        date12Format = `${day} ${month} ${date}, ${year}, 12:${minutes}AM`;
-        changeUnits({
-          time: date12Format,
-        });
-      } else {
-        date12Format = `${day} ${month} ${date}, ${year}, ${hour}:${minutes}AM`;
-        changeUnits({
-          time: date12Format,
-        });
-      }
-    } else {
-      changeUnits({
-        time: date24Format,
-      });
-    }
-  }
 
   ///////////////////////////Units////////////////////////////////
   const [units, changeUnits] = useState({
@@ -296,18 +271,7 @@ function App() {
                 </label>
                 <span id="Imperial">Imperial</span>
               </div>
-              <div id="current-time">
-                <span id="24-hour">24-hour</span>
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    name="switchTime"
-                    onChange={toggleTime}
-                  />
-                  <span className="slider round"></span>
-                </label>
-                <span id="12-hour">12-hour</span>
-              </div>
+
               <br />
               <br />
               <br />
@@ -444,22 +408,23 @@ function App() {
               </div>
             </div>
           </div>
+
+          <footer>
+            <p>
+              <span>
+                <a href="https://github.com/apease-9/weather-app">
+                  Open-source code
+                </a>
+                by Alia Pease
+              </span>
+              <br />
+              <span id="WeatherData">
+                Weather Data Provider:
+                <a href="https://openweathermap.org/">OpenWeather</a>
+              </span>
+            </p>
+          </footer>
         </div>
-        <footer>
-          <p>
-            <span>
-              <a href="https://github.com/apease-9/weather-app">
-                Open-source code
-              </a>
-              by Alia Pease
-            </span>
-            <br />
-            <span id="WeatherData">
-              Weather Data Provider:
-              <a href="https://openweathermap.org/">OpenWeather</a>
-            </span>
-          </p>
-        </footer>
       </div>
     );
   } else {

@@ -1,0 +1,217 @@
+/* ========
+Background
+=========== */
+
+.app {
+  background: #d4d7d8;
+  margin: 2% auto 0;
+  padding: 10px 15px 20px;
+  height: 100%;
+  font-family: "Yusei Magic", sans-serif;
+  border-radius: 50px;
+  width: 70%;
+  max-width: 800px;
+  align-content: center;
+  box-shadow: rgba(37, 39, 89, 0.7) 0px 8px 8px 0;
+  border-style: outset;
+}
+/* ========
+  Large aspects
+  =========== */
+a {
+  text-decoration: none;
+}
+.weatherD {
+  text-transform: capitalize;
+}
+
+/* ========
+  Change Units Slider
+  =========== */
+/* Hides Checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a109d4d8;
+  transition: 1.5s;
+  border-radius: 34px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: " ";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(246, 243, 252);
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #008cff8c;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+#current,
+#current-time,
+#current-bg {
+  padding: 25px;
+}
+/* ========
+  City Change Form, Current Location Button, and Poplar Cities
+  =========== */
+.cityInput,
+.stateInput,
+.countryInput {
+  width: 30%;
+  height: 30px;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+}
+
+.citySubmit,
+#currentLocation {
+  text-align: center;
+  align-self: center;
+  border-radius: 10px;
+  transition: 300ms ease-in-out;
+  border-style: outset;
+  border: none;
+  box-shadow: 2px 2px 2px 1px rgba(156, 154, 154, 0.8);
+  padding: 15px;
+  display: flex;
+  position: relative;
+}
+.citySubmit {
+  left: 10%;
+  top: 0;
+}
+#currentLocation {
+  left: 50%;
+  right: 50%;
+  top: -54px;
+}
+
+.crumbs {
+  text-align: center;
+  display: flex;
+  min-height: fit-content;
+  justify-content: space-around;
+}
+
+.pop-links {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  list-style: none;
+  padding-right: 20px;
+}
+
+/* ========
+  Current City Display
+  =========== */
+#currentCity {
+  text-align: center;
+}
+#search {
+  font-size: 70px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#coordinates,
+#timezoneP {
+  font-size: 12px;
+  padding-top: 5px;
+}
+.currentWeather {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+.currentWeather li {
+  display: block;
+  margin: 0;
+}
+.cbox {
+  margin: 0;
+  padding: 0;
+}
+.imgBox {
+  text-align: center;
+}
+.extraBox,
+.dateBox {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.dateBox {
+  padding-left: 20px;
+}
+
+#tempNow {
+  font-size: 24px;
+  justify-content: center;
+}
+.extra {
+  line-height: 24px;
+}
+
+/* ========
+  5 day forecast
+  =========== */
+.fiveDay {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  align-content: flex-start;
+}
+.fiveDay li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.future {
+  align-items: center;
+  flex-basis: 20%;
+  padding: 20px;
+  padding-left: 5px;
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid;
+  margin: 0 auto;
+}
+.future h3 {
+  font-size: 15px;
+  padding: 0;
+}
+.highLow {
+  display: flex;
+  flex-flow: wrap;
+}
+.icon {
+  background: transparent;
+  justify-self: center;
+}

@@ -24,13 +24,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -48,13 +41,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -74,13 +60,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -98,13 +77,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -124,13 +96,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -148,13 +113,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -174,13 +132,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -198,13 +149,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -224,13 +168,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -248,13 +185,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -274,13 +204,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -298,13 +221,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
@@ -324,13 +240,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -349,13 +258,6 @@ export default function Extra(props) {
       <div className="extraBox cbox col-4">
         <ul>
           <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
-          <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
           <li className="extra">
@@ -373,13 +275,6 @@ export default function Extra(props) {
     return (
       <div className="extraBox cbox col-4">
         <ul>
-          <li className="extra">
-            Dew Point:
-            <span id="dew" className="unit-0">
-              {props.humidity}
-            </span>
-            {props.cF}
-          </li>
           <li className="extra">
             Humidity: <span id="humidity">{props.humidity}</span>%
           </li>
