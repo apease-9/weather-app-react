@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import Extra from "./extra";
 import Imgs from "./imgs";
+import Forecast from "./forecast";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import "./footer.css";
@@ -407,6 +408,12 @@ function App() {
                 </div>
               </div>
             </div>
+            <Forecast
+              units={units.cF}
+              lat={weatherData.lat}
+              lon={weatherData.lon}
+              apiUnits={units.apiUnits}
+            />
           </div>
 
           <footer>
